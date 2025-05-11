@@ -18,6 +18,7 @@ const departamentos = [
     icon: Wrench,
     color: "bg-white",
     iconColor: "text-blue-600",
+    engenheiro: "Carlos Silva",
   },
   {
     id: "bombas-motores-engrenagem",
@@ -27,6 +28,7 @@ const departamentos = [
     icon: Cog,
     color: "bg-white",
     iconColor: "text-green-600",
+    engenheiro: "Ana Oliveira",
   },
   {
     id: "bombas-motores-escavadeira",
@@ -36,6 +38,7 @@ const departamentos = [
     icon: Settings,
     color: "bg-white",
     iconColor: "text-amber-600",
+    engenheiro: "Roberto Santos",
   },
   {
     id: "blocos-valvulas",
@@ -45,6 +48,7 @@ const departamentos = [
     icon: Users,
     color: "bg-white",
     iconColor: "text-purple-600",
+    engenheiro: "Mariana Costa",
   },
 ];
 
@@ -71,20 +75,25 @@ export default function Home() {
                     >
                       <departamento.icon className="h-6 w-6" />
                     </div>
-                    <CardTitle>{departamento.titulo}</CardTitle>
+                    <div>
+                      <CardTitle>{departamento.titulo}</CardTitle>
+                      <p className="text-sm text-gray-600">
+                        Eng. {departamento.engenheiro}
+                      </p>
+                    </div>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-6">
-                  <CardDescription className="text-base">
+                  <CardDescription className="text-base mb-4">
                     {departamento.descricao}
                   </CardDescription>
+                  <CardFooter>
+                    <Button variant="ghost" className="ml-auto group">
+                      Ver detalhes
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </CardFooter>
                 </CardContent>
-                <CardFooter>
-                  <Button variant="ghost" className="ml-auto group">
-                    Ver detalhes
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </CardFooter>
               </Card>
             </Link>
           ))}
