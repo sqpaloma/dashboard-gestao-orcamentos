@@ -16,8 +16,8 @@ const departamentos = [
     titulo: "Bombas e Motores de Pistão",
     descricao: "Consultoria especializada em componentes hidráulicos de pistão",
     icon: Wrench,
-    color: "bg-blue-100 dark:bg-blue-900",
-    iconColor: "text-blue-600 dark:text-blue-400",
+    color: "bg-white",
+    iconColor: "text-blue-600",
   },
   {
     id: "bombas-motores-engrenagem",
@@ -25,8 +25,8 @@ const departamentos = [
     descricao:
       "Consultoria especializada em componentes hidráulicos de engrenagem",
     icon: Cog,
-    color: "bg-green-100 dark:bg-green-900",
-    iconColor: "text-green-600 dark:text-green-400",
+    color: "bg-white",
+    iconColor: "text-green-600",
   },
   {
     id: "bombas-motores-escavadeira",
@@ -34,8 +34,8 @@ const departamentos = [
     descricao:
       "Consultoria especializada em sistemas hidráulicos para escavadeiras",
     icon: Settings,
-    color: "bg-amber-100 dark:bg-amber-900",
-    iconColor: "text-amber-600 dark:text-amber-400",
+    color: "bg-white",
+    iconColor: "text-amber-600",
   },
   {
     id: "blocos-valvulas",
@@ -43,8 +43,8 @@ const departamentos = [
     descricao:
       "Consultoria especializada em componentes de controle hidráulico",
     icon: Users,
-    color: "bg-purple-100 dark:bg-purple-900",
-    iconColor: "text-purple-600 dark:text-purple-400",
+    color: "bg-white",
+    iconColor: "text-purple-600",
   },
 ];
 
@@ -54,11 +54,6 @@ export default function Home() {
       <div className="w-full max-w-7xl mx-auto">
         <div className="mb-12 text-center">
           <h1 className="text-4xl font-bold mb-4">Consultoria</h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Gerenciamento Consultoria oferece serviços especializados em
-            componentes hidráulicos para diversos setores industriais. Selecione
-            um departamento para visualizar informações detalhadas.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -72,7 +67,7 @@ export default function Home() {
                 <CardHeader className={`${departamento.color} rounded-t-lg`}>
                   <div className="flex items-center gap-3">
                     <div
-                      className={`p-3 rounded-full bg-white dark:bg-gray-800 ${departamento.iconColor} flex items-center justify-center`}
+                      className={`p-3 rounded-full bg-white ${departamento.iconColor} flex items-center justify-center`}
                     >
                       <departamento.icon className="h-6 w-6" />
                     </div>

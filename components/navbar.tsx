@@ -23,7 +23,7 @@ export function Navbar() {
       <div className="flex h-16 items-center px-4 md:px-8 max-w-7xl mx-auto">
         <div className="flex items-center gap-2 font-semibold text-lg">
           <BarChart3 className="h-5 w-5" />
-          <span>Gerenciamento Consultoria</span>
+          <span>Gerenciamento</span>
         </div>
 
         <div className="ml-auto flex items-center gap-4">

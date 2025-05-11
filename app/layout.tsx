@@ -9,7 +9,7 @@ import { OrcamentosProvider } from "@/lib/context";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Gerenciamento Consultoria | Painel de Orçamentos",
+  title: "Gerenciamento Consultoria| Painel de Orçamentos",
   description:
     "Visualização interativa de dados de orçamentos para Gerenciamento Consultoria",
   generator: "v0.dev",

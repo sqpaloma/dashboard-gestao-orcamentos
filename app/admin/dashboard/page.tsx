@@ -1,17 +1,29 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { useSearchParams } from "next/navigation"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { SimpleStatusChart } from "@/components/simple-status-chart"
-import { SimpleBarChart } from "@/components/simple-bar-chart"
-import { SimpleTable } from "@/components/simple-table"
-import { UploadButton } from "@/components/upload-button"
-import { ArrowLeft, Download, Printer } from "lucide-react"
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { SimpleStatusChart } from "@/components/simple-status-chart";
+import { SimpleBarChart } from "@/components/simple-bar-chart";
+import { SimpleTable } from "@/components/simple-table";
+import { UploadButton } from "@/components/upload-button";
+import { ArrowLeft, Download, Printer } from "lucide-react";
 
 // Dados simulados para cada departamento
 const departamentosData = {
@@ -19,33 +31,35 @@ const departamentosData = {
   "bombas-motores-engrenagem": "Bombas e Motores de Engrenagem",
   "bombas-motores-escavadeira": "Bombas, Motores e Comandos de Escavadeira",
   "blocos-valvulas": "Blocos, Válvulas, Orbitrol e Pedal de Freio",
-}
+};
 
 export default function AdminDashboardPage() {
-  const searchParams = useSearchParams()
-  const [mounted, setMounted] = useState(false)
-  const [departamento, setDepartamento] = useState(searchParams.get("departamento") || "todos")
+  const searchParams = useSearchParams();
+  const [mounted, setMounted] = useState(false);
+  const [departamento, setDepartamento] = useState(
+    searchParams.get("departamento") || "todos"
+  );
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   if (!mounted) {
-    return null
+    return null;
   }
 
   const handleDepartamentoChange = (value: string) => {
-    setDepartamento(value)
-  }
+    setDepartamento(value);
+  };
 
   const handleExportPDF = () => {
     // Implementação real seria feita aqui
-    alert("Exportação de PDF em desenvolvimento")
-  }
+    alert("Exportação de PDF em desenvolvimento");
+  };
 
   const handlePrint = () => {
-    window.print()
-  }
+    window.print();
+  };
 
   return (
     <main className="flex min-h-screen flex-col items-center p-4 md:p-8">
@@ -61,7 +75,7 @@ export default function AdminDashboardPage() {
               </Button>
             </div>
             <h1 className="text-3xl font-bold">Dashboard Administrativo</h1>
-            <p className="text-muted-foreground mt-1">Gerenciamento Consultoria</p>
+            <p className="text-muted-foreground mt-1">Gerenciamento</p>
           </div>
           <div className="flex gap-2">
             <Button onClick={handleExportPDF} variant="outline">
@@ -79,22 +93,31 @@ export default function AdminDashboardPage() {
         <Card className="mb-8">
           <CardHeader>
             <CardTitle>Filtros</CardTitle>
-            <CardDescription>Selecione um departamento para visualizar dados específicos</CardDescription>
+            <CardDescription>
+              Selecione um departamento para visualizar dados específicos
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="w-full sm:w-1/3">
-                <Select value={departamento} onValueChange={handleDepartamentoChange}>
+                <Select
+                  value={departamento}
+                  onValueChange={handleDepartamentoChange}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Selecione um departamento" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="todos">Todos os departamentos</SelectItem>
-                    {Object.entries(departamentosData || {}).map(([id, nome]) => (
-                      <SelectItem key={id} value={id}>
-                        {nome}
-                      </SelectItem>
-                    ))}
+                    <SelectItem value="todos">
+                      Todos os departamentos
+                    </SelectItem>
+                    {Object.entries(departamentosData || {}).map(
+                      ([id, nome]) => (
+                        <SelectItem key={id} value={id}>
+                          {nome}
+                        </SelectItem>
+                      )
+                    )}
                   </SelectContent>
                 </Select>
               </div>
@@ -114,9 +137,13 @@ export default function AdminDashboardPage() {
               <Card>
                 <CardHeader>
                   <CardTitle>Distribuição por Status</CardTitle>
-                  <CardDescription>Proporção de orçamentos por status</CardDescription>
+                  <CardDescription>
+                    Proporção de orçamentos por status
+                  </CardDescription>
                 </CardHeader>
-                <CardContent className="h-80">{mounted ? <SimpleStatusChart /> : null}</CardContent>
+                <CardContent className="h-80">
+                  {mounted ? <SimpleStatusChart /> : null}
+                </CardContent>
               </Card>
 
               <Card>
@@ -124,7 +151,9 @@ export default function AdminDashboardPage() {
                   <CardTitle>Valores por Mês</CardTitle>
                   <CardDescription>Valores aprovados por mês</CardDescription>
                 </CardHeader>
-                <CardContent className="h-80">{mounted ? <SimpleBarChart dataType="valores" /> : null}</CardContent>
+                <CardContent className="h-80">
+                  {mounted ? <SimpleBarChart dataType="valores" /> : null}
+                </CardContent>
               </Card>
             </div>
           </TabsContent>
@@ -133,9 +162,13 @@ export default function AdminDashboardPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Desempenho por Responsável</CardTitle>
-                <CardDescription>Valores aprovados por responsável</CardDescription>
+                <CardDescription>
+                  Valores aprovados por responsável
+                </CardDescription>
               </CardHeader>
-              <CardContent className="h-80">{mounted ? <SimpleBarChart dataType="responsaveis" /> : null}</CardContent>
+              <CardContent className="h-80">
+                {mounted ? <SimpleBarChart dataType="responsaveis" /> : null}
+              </CardContent>
             </Card>
           </TabsContent>
 
@@ -143,7 +176,9 @@ export default function AdminDashboardPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Dados dos Orçamentos</CardTitle>
-                <CardDescription>Visualização em tabela dos dados importados</CardDescription>
+                <CardDescription>
+                  Visualização em tabela dos dados importados
+                </CardDescription>
               </CardHeader>
               <CardContent>{mounted ? <SimpleTable /> : null}</CardContent>
             </Card>
@@ -151,5 +186,5 @@ export default function AdminDashboardPage() {
         </Tabs>
       </div>
     </main>
-  )
+  );
 }
