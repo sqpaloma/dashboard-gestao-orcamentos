@@ -94,7 +94,7 @@ export default function DepartamentoPage() {
             </p>
           </div>
           <div className="flex gap-2">
-            <Link href={`/admin/dashboard?departamento=${slug}`} passHref>
+            <Link href={`/admin/login?departamento=${slug}`} passHref>
               <Button variant="outline">
                 <BarChart3 className="mr-2 h-4 w-4" />
                 Ver Dashboard
